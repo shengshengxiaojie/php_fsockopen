@@ -8,6 +8,10 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 
 [![Travis-ci](https://api.travis-ci.org/yakeing/php_fsockopen.svg)](https://travis-ci.org/yakeing/php_fsockopen)
 
+### codecov
+
+[![codecov](https://codecov.io/gh/yakeing/php_fsockopen/branch/master/graph/badge.svg)](https://codecov.io/gh/yakeing/php_fsockopen)
+
 ### Packagist
 
 [![Version](http://img.shields.io/packagist/v/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/releases)
