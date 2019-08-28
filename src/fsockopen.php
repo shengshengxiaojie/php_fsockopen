@@ -203,7 +203,7 @@ class fsockopen{
 		}
 		fclose($fp);
 		echo "\n -------- data ---------- \n";
-		var_dunp($ret);
+		var_dump($ret);
 		echo "\n --------------------- \n";
 		list($RetHeader, $RetBody) = explode("\r\n\r\n", $ret, 2);
 		if($this->OnContinue && preg_match('/^HTTP\/[1|2]\.[0|1]\s100\sContinue/i', $RetHeader)){ //处理 HTTP/1.1 100 Continue 数据
