@@ -18,6 +18,7 @@ class fsockopen{
 	public $HttpVersion = 'HTTP/1.1'; //使用HTTP 1.0协议，服务器会主动放弃chunked编码
 	public $OnContinue = false; // 关闭 HTTP/1.1 100 Continue 返回 可能造成 HTTP/1.1 417 Expectation Failed
 	public $Content_Type = 'application/x-www-form-urlencoded;charset=utf-8'; //提交表单方式
+	public $Accept = 'application/x-www-form-urlencoded;charset=utf-8'; //提交表单方式
 
 	//构造函数
 	public function __construct(){
@@ -79,13 +80,11 @@ class fsockopen{
 		// $timeout  连接时间
 		$fp = fsockopen($xport.$host, $port, $errno, $errstr, $this->timeout);
 		if(false === $fp){
-			$this->ERR('连接错误:('.$errno.') '.$errstr, false);
+			$this->ERR('Connection error:('.$errno.') '.$errstr, false);
 		}
 		//关闭阻塞模式
-		if($this->stream === false){
-			if(!stream_set_blocking($fp,0)){
-				$this->ERR('错误：未能关闭阻塞模式!');
-			}
+		if($this->stream === false && !stream_set_blocking($fp,0)){
+			$this->ERR('ERROR：未能关闭阻塞模式!');
 		}
 		$query = isset($purl['query'])?'?'.$purl['query']:'';
 		$path = isset($purl['path'])?$purl['path']:'/';
@@ -96,7 +95,8 @@ class fsockopen{
 	public function POST_FILE($Url, $File, $Referer='', $Cookie=''){
 		$file_array = is_array($File) ? $File : array($File);
 		srand((double)microtime()*1000000);
-		$boundary = "--------------------------".substr(md5(rand(0,32000)),0,10);
+        $boundary = "----WebKitFormBoundary".substr(md5(rand(0,32000)),8,16); //WebKit
+		//$boundary = "--------------------------".substr(md5(rand(0,32000)),0,10); //IE
 		$data = "--".$boundary;
 		for($i=0;$i<count($file_array);$i++){
 			$FileType = pathinfo($file_array[$i], PATHINFO_EXTENSION | PATHINFO_FILENAME);
@@ -115,7 +115,7 @@ class fsockopen{
 					$content_type = "application/octet-stream";
 			}
 			$content_file = join('', file($file_array[$i]));
-			$data.= "\r\nContent-Disposition: form-data; name=\"file".($i+1)."\"; filename=\"".$file_array[$i]."\"";
+			$data.= "\r\nContent-Disposition: form-data; name=\"file".($i+1)."\"; filename=\"".basename($file_array[$i])."\"";
 			$data.= "\r\nContent-Type: ".$content_type;
 			$data.= "\r\n\r\n".$content_file."\r\n--".$boundary;
 		}
@@ -151,7 +151,6 @@ class fsockopen{
 			$header .= "Cookie: ".$Cookie."\r\n";
 		}
 		$header .= "\r\n";
-		var_dump($header);
 		return $this->fwrite_out($fp, $header.$Content);
 	} //END POST
 
@@ -203,9 +202,6 @@ class fsockopen{
 			$ret .= fgets($fp, 4096);
 		}
 		fclose($fp);
-		echo "\n -------- data ---------- \n";
-		var_dump($ret);
-		echo "\n --------------------- \n";
 		list($RetHeader, $RetBody) = explode("\r\n\r\n", $ret, 2);
 		if($this->OnContinue && preg_match('/^HTTP\/[1|2]\.[0|1]\s100\sContinue/i', $RetHeader)){ //处理 HTTP/1.1 100 Continue 数据
 			list($RetHeader, $RetBody) = explode("\r\n\r\n", $RetBody, 2);
