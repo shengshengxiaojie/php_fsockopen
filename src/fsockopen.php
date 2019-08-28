@@ -151,6 +151,7 @@ class fsockopen{
 			$header .= "Cookie: ".$Cookie."\r\n";
 		}
 		$header .= "\r\n";
+		var_dump($header);
 		return $this->fwrite_out($fp, $header.$Content);
 	} //END POST
 
