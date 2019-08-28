@@ -3,13 +3,14 @@
  * fsockopen class
  * 是 socket 套接字链接的封装函数
  * @author http://weibo.com/yakeing
- * @version 2.1
+ * @version 2.2
  */
 namespace php_fsockopen;
 class fsockopen{
 	private $stream = true; //阻塞模式
 	private $timeout = 5; //连接/运行时间
 	private $xport = 'tcp'; //连接协议 tcp
+    
 	public $UserAgent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';//浏览器
 	public $AcceptEncoding = ''; //压缩编码 gzip, deflate, sdch
 	public $AcceptLanguage = 'zh-CN,zh;q=0.8'; //语言
@@ -202,12 +203,15 @@ class fsockopen{
 		}
 		fclose($fp);
 		list($RetHeader, $RetBody) = explode("\r\n\r\n", $ret, 2);
-		if($this->OnContinue && preg_match('/^HTTP\/1\.[1|0]\s100\sContinue/i', $RetHeader)){ //处理 HTTP/1.1 100 Continue 数据
+		if($this->OnContinue && preg_match('/^HTTP\/[1|2]\.[0|1]\s100\sContinue/i', $RetHeader)){ //处理 HTTP/1.1 100 Continue 数据
 			list($RetHeader, $RetBody) = explode("\r\n\r\n", $RetBody, 2);
+		}
+		if(!preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $RetHeader, $StatusCode)){ //处理状态码
+			$StatusCode = array(0,0);
 		}
 		if(preg_match('/Transfer-Encoding:\s?chunked/i', $RetHeader)){ //检测是否使用 分块字段
 			$RetBody = $this->DecodeChunked($RetBody);
 		}
-		return array('header' => $RetHeader, 'body' => trim($RetBody));
+		return array('code' => $StatusCode[1],'header' => $RetHeader, 'body' => trim($RetBody));
 	} //END fwrite_out
 }// CLASS END
