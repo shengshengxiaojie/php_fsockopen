@@ -135,7 +135,7 @@ class fsockopen{
 		// $header .= "X-Requested-With: XMLHttpRequest\r\n"; //AJax异步请求
 		$header .= "User-Agent: ".$this->UserAgent."\r\n"; //浏览器
 		$header .= "Content-Type: ".$ContentType."\r\n"; //提交方式
-		$header .= "Accept: */ *\r\n";
+		//$header .= "Accept: */ *\r\n";
 		if($this->OnContinue === false){ //防止返回 HTTP/1.1 100 Continue
 			$header .= "Expect:\r\n";
 		}
@@ -160,7 +160,7 @@ class fsockopen{
 		$header .= "Host: ".$purl['host']."\r\n";
 		$header .= "Connection: ".$this->Connection."\r\n"; //持久连接
 		$header .= "User-Agent: ".$this->UserAgent."\r\n"; //浏览器
-		$header .= "Accept: */*\r\n";
+		//$header .= "Accept: */*\r\n";
 		if($this->OnContinue === false){ //防止返回 HTTP/1.1 100 Continue
 			$header .= "Expect:\r\n";
 		}
