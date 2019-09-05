@@ -22,7 +22,7 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 [![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](https://github.com/yakeing/php_fsockopen)
 [![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](https://github.com/yakeing/php_fsockopen/blob/master/src/php_fsockopen/fsockopen.php)
 [![tag](https://img.shields.io/github/tag/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/releases)
-[![Language](https://img.shields.io/github/license/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/blob/master/LICENSE)
+[![Language](https://oauth.applinzi.com/Badge/license/MPL-2.0/FE7D37.svg)](https://github.com/yakeing/php_fsockopen/blob/master/LICENSE)
 [![Php](https://img.shields.io/github/languages/top/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen)
 
 ### Installation
@@ -76,7 +76,7 @@ Use [Composer](https://getcomposer.org) to install the library.
 
 - [x] Sample：
 ```php
-    $ret = $fs->POST_FILE(
+    $ret = $fs->PUT(
         $Url , //Destination URL
         $File, //File OR Picture address: ['01.jpg','02.jpg',...]
         $Referer , //Forge Referer (optional)
