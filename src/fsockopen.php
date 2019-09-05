@@ -10,7 +10,7 @@ class fsockopen{
 	private $stream = true; //阻塞模式
 	private $timeout = 5; //连接/运行时间
 	private $xport = 'tcp'; //连接协议 tcp
-    
+
 	public $UserAgent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36';//浏览器
 	public $AcceptEncoding = ''; //压缩编码 gzip, deflate, sdch
 	public $AcceptLanguage = 'zh-CN,zh;q=0.8'; //语言
@@ -20,15 +20,15 @@ class fsockopen{
 	public $Content_Type = 'application/x-www-form-urlencoded;charset=utf-8'; //提交表单方式
 	public $Accept = 'application/x-www-form-urlencoded;charset=utf-8'; //提交表单方式
 
-	//构造函数
+	//construct
 	public function __construct(){
-		function_exists('fsockopen') or $this->ERR('php需要fsockopen函数支持或被关闭', false);
+		function_exists('fsockopen') or $this->ERR('php This function is not supported fsockopen', false);
 	} //END __construct
 
-	//错误处理
+	//error handling
 	private function ERR($str, $KeepRunning=true){
 		if($KeepRunning){
-			echo "<b>发现异常错误:<b><br />\n".$str;
+			echo "<b>Found an exception error:<b><br />\n".$str;
 		}else{
 			throw new Exception($str); //抛出异常
 		}
@@ -41,7 +41,7 @@ class fsockopen{
 		}
 		//获取已注册的套接字传输协议列表
 		if(array_search($this->xport, stream_get_transports()) === false){
-			$this->ERR('服务器不支持 ('.$this->xport.') 传输协议!', false);
+			$this->ERR('Server does not support ('.$this->xport.') Transfer Protocol!', false);
 		}
 		if(is_bool($stream)){
 			$this->stream = $stream;
@@ -51,7 +51,7 @@ class fsockopen{
 		}
 	} //END init
 
-	//建立新通道连接
+	//Create new channel connections
 	private function NewChannel($url){
 		$errno = 0;
 		$errstr = '';
@@ -84,15 +84,15 @@ class fsockopen{
 		}
 		//关闭阻塞模式
 		if($this->stream === false && !stream_set_blocking($fp,0)){
-			$this->ERR('ERROR：未能关闭阻塞模式!');
+			$this->ERR('ERROR：Failed to close blocking mode!');
 		}
 		$query = isset($purl['query'])?'?'.$purl['query']:'';
 		$path = isset($purl['path'])?$purl['path']:'/';
 		return array($fp, $path.$query, $purl);
 	} //END NewChannel
 
-	//发送 POST 文件
-	public function POST_FILE($Url, $File, $Referer='', $Cookie=''){
+	//POST Method to Send File Data
+	public function PUT($Url, $File, $Referer='', $Cookie=''){
 		$file_array = is_array($File) ? $File : array($File);
 		srand((double)microtime()*1000000);
         $boundary = "----WebKitFormBoundary".substr(md5(rand(0,32000)),8,16); //WebKit
@@ -122,9 +122,9 @@ class fsockopen{
 		$data.="--\r\n\r\n";
 		$ContentType = 'multipart/form-data; boundary='.$boundary;
 		return $this->POST($Url, $data, $Referer, $Cookie, $ContentType);
-	} //END POST_ FILE
+	} //END PUT
 
-	//POST 方式
+	//Transfer data via POST
 	public function POST($Url, $Content, $Referer='', $Cookie='', $ContentType=''){
 		$ContentType = empty($ContentType) ? $this->Content_Type : $ContentType;
 		list($fp, $path, $purl) = $this->NewChannel($Url);
@@ -133,7 +133,7 @@ class fsockopen{
 		$header .= "Connection: ".$this->Connection."\r\n"; //持久连接
 		$header .= "Content-Length: ".strlen($Content)."\r\n";
 		$header .= "Origin: ".$purl['scheme']."://".$purl['host']."\r\n";
-		// $header .= "X-Requested-With: XMLHttpRequest\r\n"; //AJax异步请求
+		// $header .= "X-Requested-With: XMLHttpRequest\r\n"; //AJax 异步请求
 		$header .= "User-Agent: ".$this->UserAgent."\r\n"; //浏览器
 		$header .= "Content-Type: ".$ContentType."\r\n"; //提交方式
 		$header .= "Accept: */*\r\n";
@@ -154,7 +154,7 @@ class fsockopen{
 		return $this->fwrite_out($fp, $header.$Content);
 	} //END POST
 
-	//GET 方式
+	//GET mode
 	public function GET($Url, $Referer='', $Cookie=''){
 		list($fp, $path, $purl) = $this->NewChannel($Url);
 		$header = "GET ".$path." ".$this->HttpVersion."\r\n";
@@ -179,7 +179,7 @@ class fsockopen{
 		return $this->fwrite_out($fp, $header);
 	} //END GET
 
-	//处理 Chunked 分块字段 Transfer-Encoding:chunked
+	//deal with [Chunked] Block field {Transfer-Encoding:chunked}
 	private function DecodeChunked($Body){
 		$ret = '';
 		$i=$chunk_size=1;
@@ -194,7 +194,7 @@ class fsockopen{
 		return $ret;
 	} //END DecodeChunked
 
-	//获取数据包
+	//Get the packet
 	private function fwrite_out($fp, $data){
 		$ret='';
 		fwrite($fp, $data);
