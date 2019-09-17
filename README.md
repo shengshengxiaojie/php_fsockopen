@@ -22,7 +22,7 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 [![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](https://github.com/yakeing/php_fsockopen)
 [![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](https://github.com/yakeing/php_fsockopen/blob/master/src/php_fsockopen/fsockopen.php)
 [![tag](https://oauth.applinzi.com/Label/tag/v2.1.0/28a745.svg)](https://github.com/yakeing/php_fsockopen/releases)
-[![Language](https://oauth.applinzi.com/Label/license/MPL-2.0/FE7D37.svg)](https://github.com/yakeing/php_fsockopen/blob/master/LICENSE)
+[![license](https://oauth.applinzi.com/Label/license/MPL-2.0/FE7D37.svg)](https://github.com/yakeing/php_fsockopen/blob/master/LICENSE)
 [![languages](https://oauth.applinzi.com/Label/languages/php/007EC6.svg)](https://github.com/yakeing/php_fsockopen/search?l=php)
 
 ### Installation
