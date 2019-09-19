@@ -1,0 +1,29 @@
+{
+    "name": "php-fsockopen",
+    "version": "4.1.0",
+    "description": "fsockopen is socket package function, in addition to the basic commonly used TCP:// communication function, it also has other powerful communication function, UDP:// unix:// / udg:// and so on various protocols.",
+    "keywords": ["fsockopen", "TCP", "UDP", "unix", "udg"],
+    "homepage": "https://github.com/yakeing/php_fsockopen",
+    "type": "symfony-bundle",
+    "license": "MPL-2.0",
+    "author": {
+            "name": "yakeing",
+            "url": "http://weibo.com/yakeing"
+        },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yakeing/php_fsockopen.git"
+    },
+    "dependencies": {
+        "php-fsockopen": "git://github.com/yakeing/php_fsockopen.git#commit-ish"
+    },
+    "devDependencies": {
+        "php-badge": "git://github.com/yakeing/php_badge.git#commit-ish"
+    },
+    "bugs": {
+        "url": "https://github.com/yakeing/php_fsockopen/issues"
+    }
+}
