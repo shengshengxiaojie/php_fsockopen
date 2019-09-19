@@ -21,7 +21,7 @@
         "php-fsockopen": "git://github.com/yakeing/php_fsockopen.git#commit-ish"
     },
     "devDependencies": {
-        "php-badge": "git://github.com/yakeing/php_badge.git#commit-ish"
+        "php-badge": "*"
     },
     "bugs": {
         "url": "https://github.com/yakeing/php_fsockopen/issues"
