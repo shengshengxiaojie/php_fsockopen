@@ -4,7 +4,8 @@
   "description": "fsockopen is socket package function, in addition to the basic commonly used TCP:// communication function, it also has other powerful communication function, UDP:// unix:// / udg:// and so on various protocols.",
   "main": "index.js",
   "dependencies": {
-        "php-fsockopen": "*"
+        "php-fsockopen": "*",
+        "@yakeing/str-increment": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
