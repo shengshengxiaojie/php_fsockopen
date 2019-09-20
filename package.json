@@ -1,6 +1,6 @@
 {
   "name": "php-fsockopen",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "fsockopen is socket package function, in addition to the basic commonly used TCP:// communication function, it also has other powerful communication function, UDP:// unix:// / udg:// and so on various protocols.",
   "main": "index.js",
   "devDependencies": {
