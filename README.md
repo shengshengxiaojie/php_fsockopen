@@ -6,7 +6,7 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 
 ### Travis CI
 
-[![Travis-ci](https://api.travis-ci.org/yakeing/php_fsockopen.svg)](https://travis-ci.org/yakeing/php_fsockopen)
+[![Travis-ci](https://api.travis-ci.com/yakeing/php_fsockopen.svg)](https://travis-ci.org/yakeing/php_fsockopen)
 
 ### codecov
 
