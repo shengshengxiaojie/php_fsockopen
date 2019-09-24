@@ -4,20 +4,20 @@
 
 You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-get-transports.php) to get the current server registered socket transfer protocol list to determine whether to support the need to use the agreement.
 
-### Travis CI
+### Travis CI badge
 
 [![Travis-ci](https://api.travis-ci.com/yakeing/php_fsockopen.svg)](https://travis-ci.org/yakeing/php_fsockopen)
 
-### codecov
+### codecov badge
 
 [![codecov](https://codecov.io/gh/yakeing/php_fsockopen/branch/master/graph/badge.svg)](https://codecov.io/gh/yakeing/php_fsockopen)
 
-### Packagist
+### Packagist badge
 
 [![Version](http://img.shields.io/packagist/v/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/releases)
 [![Downloads](http://img.shields.io/packagist/dt/yakeing/php_fsockopen.svg)](https://packagist.org/packages/yakeing/php_fsockopen)
 
-### Github
+### Github badge
 
 [![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](https://github.com/yakeing/php_fsockopen)
 [![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](https://github.com/yakeing/php_fsockopen/blob/master/src/php_fsockopen/fsockopen.php)
@@ -28,11 +28,10 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 ### Installation
 
 Use [Composer](https://getcomposer.org) to install the library.
+Of course, You can go to [Packagist](https://packagist.org/packages/yakeing/php_fsockopen) to view.
 
 ```
-
     $ composer require yakeing/php_fsockopen
-
 ```
 
 ### Initialization parameter
