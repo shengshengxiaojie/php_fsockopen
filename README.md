@@ -15,7 +15,7 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 ### Packagist badge
 
 [![Version](http://img.shields.io/packagist/v/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/releases)
-[![Downloads](http://img.shields.io/packagist/dt/yakeing/php_fsockopen.svg)](https://packagist.org/packages/yakeing/php_fsockopen)
+[![Downloads](http://img.shields.io/packagist/dt/yakeing/php_fsockopen.svg)](https://packagist.org/packages/yakeing/php_badge/dependents)
 
 ### Github badge
 
