@@ -1,4 +1,4 @@
-# php_fsockopen
+# fsockopen
 
 [fsockopen](http://www.php.net/manual/zh/function.fsockopen.php) is socket package function, in addition to the basic commonly used TCP:// communication function, it also has other powerful communication function, UDP:// unix:// / udg:// and so on various protocols.
 
