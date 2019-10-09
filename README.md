@@ -20,7 +20,7 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 ### Github badge
 
 [![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](../../)
-[![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](src/fsockopen.php)
+[![Size](https://oauth.applinzi.com/Label/size/7.78KB/b36d41.svg)](src/fsockopen.php)
 [![tag](https://oauth.applinzi.com/Label/tag/v2.1.0/28a745.svg)](../../releases)
 [![license](https://oauth.applinzi.com/Label/license/MPL-2.0/FE7D37.svg)](LICENSE)
 [![languages](https://oauth.applinzi.com/Label/languages/php/007EC6.svg)](../../search?l=php)
