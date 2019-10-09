@@ -14,16 +14,16 @@ You can use  [stream_get_transports](http://php.net/manual/zh/function.stream-ge
 
 ### Packagist badge
 
-[![Version](http://img.shields.io/packagist/v/yakeing/php_fsockopen.svg)](https://github.com/yakeing/php_fsockopen/releases)
+[![Version](http://img.shields.io/packagist/v/yakeing/php_fsockopen.svg)](../../releases)
 [![Downloads](http://img.shields.io/packagist/dt/yakeing/php_fsockopen.svg)](https://packagist.org/packages/yakeing/php_fsockopen/dependents)
 
 ### Github badge
 
-[![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](https://github.com/yakeing/php_fsockopen)
-[![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](https://github.com/yakeing/php_fsockopen/blob/master/src/php_fsockopen/fsockopen.php)
-[![tag](https://oauth.applinzi.com/Label/tag/v2.1.0/28a745.svg)](https://github.com/yakeing/php_fsockopen/releases)
-[![license](https://oauth.applinzi.com/Label/license/MPL-2.0/FE7D37.svg)](https://github.com/yakeing/php_fsockopen/blob/master/LICENSE)
-[![languages](https://oauth.applinzi.com/Label/languages/php/007EC6.svg)](https://github.com/yakeing/php_fsockopen/search?l=php)
+[![Downloads](https://img.shields.io/github/downloads/yakeing/php_fsockopen/total.svg)](../../)
+[![Size](https://img.shields.io/github/size/yakeing/php_fsockopen/src/fsockopen.php.svg)](src/fsockopen.php)
+[![tag](https://oauth.applinzi.com/Label/tag/v2.1.0/28a745.svg)](../../releases)
+[![license](https://oauth.applinzi.com/Label/license/MPL-2.0/FE7D37.svg)](LICENSE)
+[![languages](https://oauth.applinzi.com/Label/languages/php/007EC6.svg)](../../search?l=php)
 
 ### Installation
 
